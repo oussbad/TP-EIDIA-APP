@@ -49,7 +49,7 @@ class TabBarDemo extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => hilali()));
+                                  builder: (context) => Hilali()));
                         },
                         child: Image.asset('images/hilali.png')),
                     ElevatedButton(
@@ -57,7 +57,7 @@ class TabBarDemo extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => hilali()));
+                                  builder: (context) => Hilali()));
                         },
                         child: Image.asset('images/maha.png'),),
                     ElevatedButton(
@@ -65,7 +65,7 @@ class TabBarDemo extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => hilali()));
+                                  builder: (context) => Hilali()));
                         },
                         child:  Image.asset('images/mohtadi.png'),),
                     ElevatedButton(
@@ -73,7 +73,7 @@ class TabBarDemo extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => hilali()));
+                                  builder: (context) => Hilali()));
                         },
                         child:   Image.asset('images/taha.png'),),
                     ElevatedButton(
@@ -81,7 +81,7 @@ class TabBarDemo extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => hilali()));
+                                  builder: (context) => Hilali()));
                         },
                         child:  Image.asset('images/badrkari.png')),
 

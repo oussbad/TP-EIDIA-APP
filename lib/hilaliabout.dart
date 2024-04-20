@@ -1,23 +1,52 @@
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class hilali extends StatefulWidget {
-  const hilali({Key? key}) : super(key: key);
+class Hilali extends StatelessWidget {
+  const Hilali({Key? key}) : super(key: key);
 
-  @override
-  State<hilali> createState() => _hilaliState();
-}
-
-class _hilaliState extends State<hilali> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("A propos du professeur",textAlign: TextAlign.center),),
-      body: Column(
-        children: [
-          Text(" Un expert en ingénierie digitale et en intelligence artificielle, spécialisé dans la modélisation et l'optimisation. Il détient un doctorat d'état en optimisation de l'Université Sidi Mohamed Ben Abdellah, Tétouan, obtenu en 1996. Ses compétences couvrent un large éventail de domaines, notamment la modélisation, l'optimisation, les problèmes d’ordonnancement, la logistique, les problèmes de transport et les métaheuristiques. Avec une solide formation académique comprenant un DEUG en Mathématiques Physiques et une Licence en Mathématiques Appliquées de l'Université Mohammed V, Rabat, ainsi que des certificats en Analyse et en Optimisation de l'Université Sidi Mohamed Ben Abdellah, Tétouan, Ahmed El Hilali Alaoui a également une expérience professionnelle diversifiée et des contributions significatives à la recherche, illustrées par ses publications dans son domaine d'expertise."),
-        ],
+      appBar: AppBar(
+
+      ),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            CircleAvatar(
+            backgroundImage: AssetImage("images/hilali.png"),
+      ),
+            Text(
+              "Ahmed El Hilali Alaoui",
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 10),
+            Text(
+              "Expert in Digital Engineering and Artificial Intelligence",
+              style: TextStyle(
+                fontSize: 18,
+                fontStyle: FontStyle.italic,
+              ),
+            ),
+            SizedBox(height: 20),
+            Text(
+              "About:",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 10),
+            Text(
+              "Ahmed El Hilali Alaoui is an expert in digital engineering and artificial intelligence, specialized in modeling and optimization. He holds a Ph.D. in optimization from Sidi Mohamed Ben Abdellah University, Tétouan, obtained in 1996. His skills cover a wide range of domains, including modeling, optimization, scheduling problems, logistics, transportation problems, and metaheuristics. With a solid academic background including a DEUG in Physical Mathematics and a Bachelor's degree in Applied Mathematics from Mohammed V University, Rabat, as well as certificates in Analysis and Optimization from Sidi Mohamed Ben Abdellah University, Tétouan, Ahmed El Hilali Alaoui also has diverse professional experience and significant research contributions, illustrated by his publications in his field of expertise.",
+              textAlign: TextAlign.justify,
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'AI.dart';
 import 'BD.dart';
+import 'CorpProfessionelle.dart';
+import 'HilaliWord.dart';
+import 'ListFiliere.dart';
+import 'abouteidia.dart';
+import 'futureetudant.dart';
 import 'hilaliabout.dart';
 import 'maha.dart';
 
@@ -24,93 +29,12 @@ class _DrState extends State<Dr> {
   void initState() {
     super.initState();
     _widgetOptions = <Widget>[
-      SingleChildScrollView(
-        child: Column(
-          children: [
-            ElevatedButton(onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ListModuleAIPage(),
-                ),
-              );
-            },
-            child: Image.asset('images/AI.png')),
-            ElevatedButton(onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ListModuleBDPage(),
-                ),
-              );
+      AboutEidia(),
+      ListFiliere(),
+      CorpProfessionelle(),
 
-            },
-            child: Image.asset('images/BD.png')),
-            Image.asset('images/CS.png'),
-            Image.asset('images/RB.png'),
-            Image.asset('images/WM.png'),
-          ],
-        ),
-      ),
-      SingleChildScrollView(
-        child: Column(
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => hilali(),
-                  ),
-                );
-              },
-              child: Image.asset('images/hilali.png'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => maha(),
-                  ),
-                );
-              },
-              child: Image.asset('images/mohtadi.png'),
-            ),
-
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => hilali(),
-                  ),
-                );
-              },
-              child: Image.asset('images/taha.png'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => hilali(),
-                  ),
-                );
-              },
-              child: Image.asset('images/badrkari.png'),
-            ),
-          ],
-        ),
-      ),
-      Column(
-        children: [
-          Image.asset('images/hilali.png'),
-          Text(
-              "Bienvenue à l’EIDIA,Notre ambition est de former des cadres de haut niveau en capacité d’accompagner les grands projets et chantiers de développement dans les pays du bassin euro-Méditerranéen et en Afrique subsaharienne dans les métiers du digital et de l’intelligence artificielle.",
-              textAlign: TextAlign.center)
-        ],
-      ),
+      YourWidget(),
+      WhyChooseEIDIA()
     ];
   }
 
@@ -123,7 +47,10 @@ class _DrState extends State<Dr> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("EIDIA")),
+      appBar: AppBar(
+        title: Text('About Eidia'),
+        backgroundColor: Colors.orange, // Setting app bar color to orange
+      ),
       body: Center(
         child: _widgetOptions[_selectedIndex],
       ),
@@ -133,20 +60,17 @@ class _DrState extends State<Dr> {
           children: [
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                image: DecorationImage(
+                  image: NetworkImage(
+                      "https://ueuromed.org/sites/default/files/styles/logo/public/2021-12/logo-eidia.jpg"),
+                  fit: BoxFit.cover,
+                ),
               ),
-              child: Column(
-                children: [
-                  const Text('About EIDIA'),
-                  Text(
-                    "Bienvenue à l’EIDIA,Notre ambition est de former des cadres de haut niveau en capacité d’accompagner les grands projets et chantiers de développement dans les pays du bassin euro-Méditerranéen et en Afrique subsaharienne dans les métiers du digital et de l’intelligence artificielle.",
-                    textAlign: TextAlign.center,
-                  ),
-                ],
-              ),
+              child: null,
             ),
             ListTile(
-              title: const Text('Filiere'),
+              leading: Icon(Icons.computer),
+              title: const Text('About EIDIA'),
               selected: _selectedIndex == 0,
               onTap: () {
                 _onItemTapped(0);
@@ -154,7 +78,8 @@ class _DrState extends State<Dr> {
               },
             ),
             ListTile(
-              title: const Text('Corps professoral'),
+              leading: Icon(Icons.subject),
+              title: const Text('Filiere'),
               selected: _selectedIndex == 1,
               onTap: () {
                 _onItemTapped(1);
@@ -162,10 +87,29 @@ class _DrState extends State<Dr> {
               },
             ),
             ListTile(
-              title: const Text('Mot du Directeur '),
+              leading: Icon(Icons.people),
+              title: const Text('Corps professoral'),
               selected: _selectedIndex == 2,
               onTap: () {
                 _onItemTapped(2);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.work),
+              title: const Text('Mot du Directeur'),
+              selected: _selectedIndex == 3,
+              onTap: () {
+                _onItemTapped(3);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.school),
+              title: const Text('Futurs étudiants'),
+              selected: _selectedIndex == 4,
+              onTap: () {
+                _onItemTapped(4);
                 Navigator.pop(context);
               },
             ),
@@ -175,3 +119,4 @@ class _DrState extends State<Dr> {
     );
   }
 }
+

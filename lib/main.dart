@@ -13,7 +13,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
+      theme: ThemeData(
+        primarySwatch: Colors.orange, // You can change this to your desired primary color
+        backgroundColor: Colors.orange,
+        fontFamily: 'Roboto',// Set the background color to orange
+      ),
       home: MyHomePage(),
     );
   }

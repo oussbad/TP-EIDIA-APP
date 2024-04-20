@@ -5,44 +5,13 @@ class ListModuleBDPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Liste des Modules de Base de Données'),
+
       ),
-      body: ListView(
-        children: <Widget>[
-          ModuleItem(name: "Introduction à la cyber-sécurité"),
-          ModuleItem(name: "Traitement du signal"),
-          ModuleItem(name: "Interfaces Homme-Machines"),
-          ModuleItem(name: "Services réseaux"),
-          ModuleItem(name: "Mécatronique"),
-          ModuleItem(name: "Algorithmique Avancée"),
-          ModuleItem(name: "Traitement d’image"),
-          ModuleItem(name: "Systèmes embarqués et objets connectés"),
-          ModuleItem(name: "Recherche opérationnelle"),
-          ModuleItem(name: "Calcul parallèle et applications réparties"),
-          ModuleItem(name: "Ingénierie du Support"),
-          ModuleItem(name: "Statistique Inférentielle Avancée"),
-          ModuleItem(name: "Ingénierie des Bases de Données"),
-          ModuleItem(name: "Programmation Python Avancée"),
-          ModuleItem(name: "Statistique Exploratoire Avancée"),
-          ModuleItem(name: "Apprentissage Statistique"),
-          ModuleItem(name: "Méga-données I"),
-          ModuleItem(name: "Informatique Décisionnelle"),
-          ModuleItem(name: "Méga-données II"),
-          ModuleItem(name: "Environnement Java EE"),
-          ModuleItem(name: "Développement Mobile"),
-          ModuleItem(name: "Développement d'Applications SaaS"),
-          ModuleItem(name: "Module Electif I"),
-          ModuleItem(name: "Module Electif II"),
-          ModuleItem(name: "Module Electif III"),
-          ModuleItem(name: "Management Stratégique"),
-          ModuleItem(name: "Gestion de Projets"),
-          ModuleItem(name: "Entreprenariat Digital"),
-          ModuleItem(name: "Communication et Culture Euro-méditerranéenne 1"),
-          ModuleItem(name: "Communication et Culture Euro-méditerranéenne 2"),
-          ModuleItem(name: "Communication et Culture Euro-méditerranéenne 3"),
-          ModuleItem(name: "Communication et Culture Euro-méditerranéenne 4"),
-          ModuleItem(name: "Communication et Culture Euro-méditerranéenne 5"),
-        ],
+      body: ListView.builder(
+        itemCount: moduleList.length,
+        itemBuilder: (BuildContext context, int index) {
+          return ModuleItem(name: moduleList[index]);
+        },
       ),
     );
   }
@@ -53,12 +22,73 @@ class ModuleItem extends StatelessWidget {
 
   ModuleItem({required this.name});
 
+  // Function to determine icon based on module name
+  IconData getIcon(String moduleName) {
+    // Add your logic here to assign icons based on module names
+    // For now, I'll just use a generic icon
+    return Icons.storage; // Using storage icon as a placeholder for database
+  }
+
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(name),
+    return Column(
+      children: <Widget>[
+        ListTile(
+          leading: Icon(
+            getIcon(name),
+            size: 30.0,
+          ),
+          title: Text(
+            name,
+            style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+          ),
+          subtitle: Text(
+            'Module description goes here',
+            style: TextStyle(fontSize: 14.0),
+          ),
+          onTap: () {
+            // Add functionality for tapping on module item
+          },
+        ),
+        Divider(), // Add a divider below each item
+      ],
     );
   }
 }
 
-
+// List of module names
+List<String> moduleList = [
+  "Introduction à la cyber-sécurité",
+  "Traitement du signal",
+  "Interfaces Homme-Machines",
+  "Services réseaux",
+  "Mécatronique",
+  "Algorithmique Avancée",
+  "Traitement d’image",
+  "Systèmes embarqués et objets connectés",
+  "Recherche opérationnelle",
+  "Calcul parallèle et applications réparties",
+  "Ingénierie du Support",
+  "Statistique Inférentielle Avancée",
+  "Ingénierie des Bases de Données",
+  "Programmation Python Avancée",
+  "Statistique Exploratoire Avancée",
+  "Apprentissage Statistique",
+  "Méga-données I",
+  "Informatique Décisionnelle",
+  "Méga-données II",
+  "Environnement Java EE",
+  "Développement Mobile",
+  "Développement d'Applications SaaS",
+  "Module Electif I",
+  "Module Electif II",
+  "Module Electif III",
+  "Management Stratégique",
+  "Gestion de Projets",
+  "Entreprenariat Digital",
+  "Communication et Culture Euro-méditerranéenne 1",
+  "Communication et Culture Euro-méditerranéenne 2",
+  "Communication et Culture Euro-méditerranéenne 3",
+  "Communication et Culture Euro-méditerranéenne 4",
+  "Communication et Culture Euro-méditerranéenne 5",
+];

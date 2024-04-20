@@ -7,42 +7,11 @@ class ListModuleAIPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Liste des Modules d\'IA'),
       ),
-      body: ListView(
-        children: <Widget>[
-          ModuleItem(name: "Introduction à la cybersécurité"),
-          ModuleItem(name: "Traitement du Signal"),
-          ModuleItem(name: "Interfaces Hommes-Machines"),
-          ModuleItem(name: "Mécatronique"),
-          ModuleItem(name: "Services et Protocoles Réseaux"),
-          ModuleItem(name: "Langues et Culture Euro-Med 1"),
-          ModuleItem(name: "Techniques Avancées de Conception Algorithmique"),
-          ModuleItem(name: "Traitement d’Image"),
-          ModuleItem(name: "Systèmes Embarqués et Objets Connectés"),
-          ModuleItem(name: "Recherche Opérationnelle"),
-          ModuleItem(name: "Calcul Parallèle et Applications Réparties"),
-          ModuleItem(name: "Langues et Culture et Euro-Med 2"),
-          ModuleItem(name: "Reconnaissance des Formes"),
-          ModuleItem(name: "OpenCV et Computer Vision"),
-          ModuleItem(name: "Bases de Données XML et NoSQL"),
-          ModuleItem(name: "Théorie des Graphes"),
-          ModuleItem(name: "Langage R et Analyse des Données"),
-          ModuleItem(name: "Management de Projet"),
-          ModuleItem(name: "Langues et Communication I"),
-          ModuleItem(name: "Traitement Automatique des Langues Naturelles"),
-          ModuleItem(name: "Représentation des Connaissances et Apprentissage"),
-          ModuleItem(name: "Traitement Avancé des Images et Reconnaissance Optique des Caractères"),
-          ModuleItem(name: "Traitement de la Parole : Synthèse Vocale"),
-          ModuleItem(name: "Projet de Fin d’Année"),
-          ModuleItem(name: "Management Stratégique"),
-          ModuleItem(name: "Langues et Communication II"),
-          ModuleItem(name: "Systèmes Multi-Agents"),
-          ModuleItem(name: "Services Web et Moteurs de Recherche"),
-          ModuleItem(name: "Réalité Virtuelle et Environnement 3D sous Blender"),
-          ModuleItem(name: "Logique Floue et Théorie de l’Incertain"),
-          ModuleItem(name: "Développement Mobile Android"),
-          ModuleItem(name: "Management d’Innovation"),
-          ModuleItem(name: "Langues et Communication II"),
-        ],
+      body: ListView.builder(
+        itemCount: moduleList.length,
+        itemBuilder: (BuildContext context, int index) {
+          return ModuleItem(name: moduleList[index]);
+        },
       ),
     );
   }
@@ -53,10 +22,73 @@ class ModuleItem extends StatelessWidget {
 
   ModuleItem({required this.name});
 
+  // Function to determine icon based on module name
+  IconData getIcon(String moduleName) {
+    // Add your logic here to assign icons based on module names
+    // For now, I'll just use a generic icon
+    return Icons.book;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(name),
+    return Column(
+      children: <Widget>[
+        ListTile(
+          leading: Icon(
+            getIcon(name),
+            size: 30.0,
+          ),
+          title: Text(
+            name,
+            style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+          ),
+          subtitle: Text(
+            'Module description goes here',
+            style: TextStyle(fontSize: 14.0),
+          ),
+          onTap: () {
+            // Add functionality for tapping on module item
+          },
+        ),
+        Divider(), // Add a divider below each item
+      ],
     );
   }
 }
+
+// List of module names
+List<String> moduleList = [
+  "Introduction à la cybersécurité",
+  "Traitement du Signal",
+  "Interfaces Hommes-Machines",
+  "Mécatronique",
+  "Services et Protocoles Réseaux",
+  "Langues et Culture Euro-Med 1",
+  "Techniques Avancées de Conception Algorithmique",
+  "Traitement d’Image",
+  "Systèmes Embarqués et Objets Connectés",
+  "Recherche Opérationnelle",
+  "Calcul Parallèle et Applications Réparties",
+  "Langues et Culture et Euro-Med 2",
+  "Reconnaissance des Formes",
+  "OpenCV et Computer Vision",
+  "Bases de Données XML et NoSQL",
+  "Théorie des Graphes",
+  "Langage R et Analyse des Données",
+  "Management de Projet",
+  "Langues et Communication I",
+  "Traitement Automatique des Langues Naturelles",
+  "Représentation des Connaissances et Apprentissage",
+  "Traitement Avancé des Images et Reconnaissance Optique des Caractères",
+  "Traitement de la Parole : Synthèse Vocale",
+  "Projet de Fin d’Année",
+  "Management Stratégique",
+  "Langues et Communication II",
+  "Systèmes Multi-Agents",
+  "Services Web et Moteurs de Recherche",
+  "Réalité Virtuelle et Environnement 3D sous Blender",
+  "Logique Floue et Théorie de l’Incertain",
+  "Développement Mobile Android",
+  "Management d’Innovation",
+  "Langues et Communication II",
+];
